@@ -1,0 +1,50 @@
+<?php
+
+function noderefUrlFormatter_field_formatter_info() {
+
+  $formatters = array(
+
+    'url' => array(
+
+      'label' => t('Display URL'),
+
+      'field types' => array('nodereference'),
+
+      'description' => t('Displays a URL to the referenced node.'),
+
+    ),
+
+  );
+  return $formatters;
+
+}
+
+function noderefUrlFormatter_theme() {
+
+  $theme = array(
+
+    'noderefUrlFormatter_formatter_url' => array(
+
+      'arguments' => array('element' => NULL),
+
+    ),
+
+  );
+
+ 
+
+  return $theme;
+
+}
+
+ 
+
+function theme_noderefUrlFormatter_formatter_url($element) {
+
+  $output =  drupal_get_path_alias('node/'. $element['#item']['nid']);
+
+ 
+
+  return $output;
+
+}
